@@ -1,0 +1,41 @@
+﻿@model List<Kitaplik.Models.Kitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kitap Adı</th>
+                <th>Yazar</th>
+                <th>Sayfa</th>
+                <th>Türü</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.KitapAd</td>
+                    <td>@item.Yazari</td>
+                    <td>@item.SayfaSayisi</td>
+                    <td>@item.Kategori.KategoriAd</td>
+                    <td>
+                        <a href="/Kitap/Sil/@item.Id" class="btn btn-danger">Sil</a>
+                    </td>
+                    <td>
+                        <a href="/Kitap/Guncelle/@item.Id" class="btn btn-warning">Güncelle</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+<a href="/Kitap/Ekle" class="btn btn-primary">Kitap Ekle</a>
+
+

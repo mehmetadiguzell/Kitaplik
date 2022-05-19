@@ -1,0 +1,20 @@
+﻿@model Kitaplik.Models.Kategori
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        <div>
+            <label for="KitapAd">Kategori Adı</label>
+            @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        </div>
+        <br />
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+    @Html.HiddenFor(x=>x.Id)
+}
